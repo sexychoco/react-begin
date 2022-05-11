@@ -1,8 +1,20 @@
-import { useEffect, useState } from "react";
-import Movie from "./components/Movie";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Detail from "./routes/Detail";
+import Home from "./routes/Home";
 
 function App() {
-  return null;
+  return (
+    <Router>
+      <Switch>
+        <Route exact={true} path="/movie/:id">
+          <Detail />
+        </Route>
+        <Route exact={true} path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
+  );
 }
 
 export default App;
