@@ -10,7 +10,7 @@ function Detail() {
     const json = await (
       await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
     ).json();
-    setLoading(false);
+    setLoading((current) => !current);
     setMovie(json.data.movie);
   }, [id]);
   useEffect(() => {
@@ -23,29 +23,27 @@ function Detail() {
           <span>Loading...</span>
         </div>
       ) : (
-        <div>
-          <div className={styles.movie}>
-            <img
-              src={movie.background_image_original}
-              alt={movie.background_image_original}
-              className={styles.movie__bg_img}
-            />
-          </div>
-          <div className={styles.movie__header}>
+        <div className={styles.movie}>
+          <div className={styles.img_box}>
             <img
               src={movie.medium_cover_image}
               alt={movie.medium_cover_image}
-              className={styles.movie__img}
+              className={styles.movie__bg_img}
             />
           </div>
-          <div>
-            <h1 className={styles.movie__title}>{movie.title}</h1>
-            <div className={styles.movie__year}>
-              <span>{movie.year}년</span>
+          <div className={styles.movie_information}>
+            <h2 className={styles.movie_title}>
+              {movie.title} ({movie.year})
+            </h2>
+            <div className={styles.movie_rating}>
+              <span>{movie.rating}점 • </span>
               <span>{movie.runtime}분</span>
+              <div className={styles.movie_download}>
+                download: {movie.download_count} (회)
+              </div>
             </div>
+            <p className={styles.movie_description}>{movie.description_full}</p>
           </div>
-          <div className={styles.movie__content}>{movie.description_full}</div>
         </div>
       )}
     </div>

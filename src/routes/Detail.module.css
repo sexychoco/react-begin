@@ -1,83 +1,45 @@
 .container {
-  height: 100%;
   display: flex;
+  height: 100vh;
+  width: 100%;
   justify-content: center;
-  background-color: #202124;
-  color: antiquewhite;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  padding-top: 50px;
 }
 
 .loader {
-  width: 100%;
-  height: 100vh;
   display: flex;
+  height: 100vh;
+  width: 100%;
   justify-content: center;
   align-items: center;
-  font-weight: 300;
+  font-weight: 600;
 }
 
 .movie {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   width: 80%;
+  height: auto;
+  min-height: 500px;
+  overflow: auto;
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+    0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+}
+
+.img_box {
+  padding: 30px;
+  position: relative;
+  min-width: 400px;
+  display: flex;
+  justify-content: center;
 }
 
 .movie__bg_img {
-  width: 100%;
-}
-.movie__header {
-  min-height: 200px;
-}
-
-.movie__img {
-  border-width: 0;
-  box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
-  border-radius: 4px;
-  margin: 7px 24px 0 0;
-  width: 72px;
-}
-.movie__title {
-  max-height: 300px;
-  line-height: 2rem;
-  font-size: 1.5rem;
-  letter-spacing: 0;
-  font-weight: 400;
-  font-weight: 500;
-  align-items: flex-end;
-  display: flex;
-  width: 100%;
-  word-break: keep-all;
-}
-.movie__year {
-  margin-top: 2px;
-  fill: #5f6368;
-  stop-color: #5f6368;
-  line-height: 1rem;
-  font-size: 0.75rem;
-  letter-spacing: 0.025em;
-  font-weight: 400;
-}
-.movie__rate__row {
-  align-items: flex-start;
-  display: flex;
-  margin: 10px;
-}
-.movie__rate {
-  padding: 0 16px;
-  min-width: 96px;
-}
-.movie__content {
-  fill: #5f6368;
-  stop-color: #5f6368;
-  font-size: 0.875rem;
-  font-weight: 400;
-  letter-spacing: 0.0142857143em;
-  line-height: 1.25rem;
-  font-family: Roboto, Helvetica, Arial, sans-serif;
-}
-.movie__genres {
-  margin-top: 30px;
+  object-fit: cover;
+  max-width: 100%;
+  height: auto;
 }
 
-.movie__genres span {
-  padding-right: 20px;
+.movie_information {
+  padding: 30px;
 }
